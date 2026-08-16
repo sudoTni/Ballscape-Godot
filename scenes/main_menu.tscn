@@ -1,0 +1,221 @@
+[gd_scene load_steps=7 format=3]
+
+[ext_resource type="Script" path="res://scripts/main_menu.gd" id="1_script"]
+[ext_resource type="Texture2D" path="res://assets/sprites/ball_fire.tres" id="2_ball"]
+[ext_resource type="Texture2D" path="res://assets/sprites/paddle_laser.tres" id="3_paddle"]
+[ext_resource type="Texture2D" path="res://assets/sprites/brick_explosive.tres" id="4_brick"]
+[ext_resource type="Texture2D" path="res://assets/sprites/ui_sound.tres" id="5_sound"]
+[ext_resource type="Texture2D" path="res://assets/sprites/powerup_multiball.tres" id="6_powerup"]
+
+[node name="MainMenu" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_script")
+
+[node name="Background" type="ColorRect" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+color = Color(0.05, 0.06, 0.1, 1)
+
+[node name="DecorativeSprites" type="Control" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+
+[node name="BallSprite" type="Sprite2D" parent="DecorativeSprites"]
+position = Vector2(200, 180)
+scale = Vector2(0.6, 0.6)
+texture = ExtResource("2_ball")
+
+[node name="PaddleSprite" type="Sprite2D" parent="DecorativeSprites"]
+position = Vector2(640, 620)
+scale = Vector2(0.8, 0.8)
+texture = ExtResource("3_paddle")
+
+[node name="BrickSprite" type="Sprite2D" parent="DecorativeSprites"]
+position = Vector2(1080, 180)
+scale = Vector2(0.7, 0.7)
+texture = ExtResource("4_brick")
+
+[node name="PowerupSprite" type="Sprite2D" parent="DecorativeSprites"]
+position = Vector2(1100, 480)
+scale = Vector2(0.6, 0.6)
+texture = ExtResource("6_powerup")
+
+[node name="MarginContainer" type="MarginContainer" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+theme_override_constants/margin_left = 40
+theme_override_constants/margin_top = 40
+theme_override_constants/margin_right = 40
+theme_override_constants/margin_bottom = 40
+
+[node name="VBoxContainer" type="VBoxContainer" parent="MarginContainer"]
+layout_mode = 2
+theme_override_constants/separation = 25
+alignment = 1
+
+[node name="TitleLabel" type="Label" parent="MarginContainer/VBoxContainer"]
+layout_mode = 2
+theme_override_colors/font_color = Color(0.2, 0.8, 1, 1)
+theme_override_colors/font_shadow_color = Color(0, 0.3, 0.6, 1)
+theme_override_constants/shadow_offset_x = 4
+theme_override_constants/shadow_offset_y = 4
+theme_override_font_sizes/font_size = 64
+text = "BALLSCAPE"
+horizontal_alignment = 1
+
+[node name="SubtitleLabel" type="Label" parent="MarginContainer/VBoxContainer"]
+layout_mode = 2
+theme_override_colors/font_color = Color(0.7, 0.85, 1, 0.8)
+theme_override_font_sizes/font_size = 20
+text = "ULTIMATE ARCADE BRICK BREAKER"
+horizontal_alignment = 1
+
+[node name="HighScoreLabel" type="Label" parent="MarginContainer/VBoxContainer"]
+layout_mode = 2
+theme_override_colors/font_color = Color(1, 0.85, 0.3, 1)
+theme_override_font_sizes/font_size = 22
+text = "HIGH SCORE: 000000"
+horizontal_alignment = 1
+
+[node name="LevelSelectContainer" type="VBoxContainer" parent="MarginContainer/VBoxContainer"]
+layout_mode = 2
+theme_override_constants/separation = 15
+alignment = 1
+
+[node name="SelectTitle" type="Label" parent="MarginContainer/VBoxContainer/LevelSelectContainer"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 20
+text = "SELECT LEVEL"
+horizontal_alignment = 1
+
+[node name="HBoxContainer" type="HBoxContainer" parent="MarginContainer/VBoxContainer/LevelSelectContainer"]
+layout_mode = 2
+theme_override_constants/separation = 15
+alignment = 1
+
+[node name="BottomBar" type="HBoxContainer" parent="MarginContainer/VBoxContainer"]
+layout_mode = 2
+theme_override_constants/separation = 20
+alignment = 1
+
+[node name="HowToPlayBtn" type="Button" parent="MarginContainer/VBoxContainer/BottomBar"]
+custom_minimum_size = Vector2(180, 48)
+layout_mode = 2
+theme_override_font_sizes/font_size = 17
+text = "HOW TO PLAY"
+
+[node name="LevelMakerBtn" type="Button" parent="MarginContainer/VBoxContainer/BottomBar"]
+custom_minimum_size = Vector2(180, 48)
+layout_mode = 2
+theme_override_colors/font_color = Color(0.3, 1, 0.6, 1)
+theme_override_font_sizes/font_size = 17
+text = "🛠️ LEVEL MAKER"
+
+[node name="SoundBtn" type="TextureButton" parent="MarginContainer/VBoxContainer/BottomBar"]
+custom_minimum_size = Vector2(48, 48)
+layout_mode = 2
+texture_normal = ExtResource("5_sound")
+ignore_texture_size = true
+stretch_mode = 5
+
+[node name="HowToPlayModal" type="Control" parent="."]
+visible = false
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+
+[node name="ColorRect" type="ColorRect" parent="HowToPlayModal"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+color = Color(0, 0, 0, 0.8)
+
+[node name="Panel" type="Panel" parent="HowToPlayModal"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -350.0
+offset_top = -240.0
+offset_right = 350.0
+offset_bottom = 240.0
+
+[node name="Title" type="Label" parent="HowToPlayModal/Panel"]
+layout_mode = 1
+anchors_preset = 10
+anchor_right = 1.0
+offset_top = 20.0
+offset_bottom = 55.0
+theme_override_colors/font_color = Color(0.3, 0.9, 1, 1)
+theme_override_font_sizes/font_size = 26
+text = "HOW TO PLAY BALLSCAPE"
+horizontal_alignment = 1
+
+[node name="RichTextLabel" type="RichTextLabel" parent="HowToPlayModal/Panel"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 30.0
+offset_top = 65.0
+offset_right = -30.0
+offset_bottom = -70.0
+theme_override_font_sizes/normal_font_size = 16
+bbcode_enabled = true
+text = "[b]CONTROLS:[/b]
+• Move Paddle: [color=cyan]Mouse[/color] or [color=cyan]Left/Right Arrows / A D[/color]
+• Launch Ball / Fire Lasers: [color=yellow]Spacebar[/color] or [color=yellow]Left Click[/color]
+
+[b]SPECIAL BRICKS & MECHANICS:[/b]
+• [color=orange]Explosive Bricks:[/color] Triggers 3x3 blast radius on destruction!
+• [color=gold]Armored Bricks:[/color] Multi-hit dark & gold reinforced walls.
+• [color=magenta]Portal Bricks:[/color] Teleports incoming ball across the grid!
+• [color=cyan]Hazards:[/color] Avoid Mines, Spikes, and Plasma Turrets firing down!
+
+[b]POWERUPS:[/b]
+• Multiball, Laser Cannons, Sticky Paddle, Fireball, Bottom Shield, 2x Score!"
+
+[node name="CloseBtn" type="Button" parent="HowToPlayModal/Panel"]
+layout_mode = 1
+anchors_preset = 12
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 250.0
+offset_top = -55.0
+offset_right = -250.0
+offset_bottom = -15.0
+text = "CLOSE"
+
+[node name="VersionLabel" type="Label" parent="."]
+layout_mode = 1
+anchors_preset = 3
+anchor_left = 1.0
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -150.0
+offset_top = -35.0
+offset_right = -20.0
+offset_bottom = -10.0
+grow_horizontal = 0
+grow_vertical = 0
+theme_override_colors/font_color = Color(0.6, 0.75, 0.9, 0.6)
+theme_override_font_sizes/font_size = 14
+text = "v0.2.0"
+horizontal_alignment = 2

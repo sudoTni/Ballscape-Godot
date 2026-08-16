@@ -1,0 +1,96 @@
+[gd_scene load_steps=2 format=3]
+
+[ext_resource type="Script" path="res://scripts/level_editor.gd" id="1_script"]
+
+[node name="LevelEditor" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_script")
+
+[node name="Background" type="ColorRect" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+color = Color(0.06, 0.08, 0.14, 1)
+
+[node name="GridContainer" type="Control" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+
+[node name="TopBar" type="PanelContainer" parent="."]
+custom_minimum_size = Vector2(1280, 60)
+layout_mode = 0
+offset_right = 1280.0
+offset_bottom = 60.0
+
+[node name="HBoxContainer" type="HBoxContainer" parent="TopBar"]
+layout_mode = 2
+theme_override_constants/separation = 20
+alignment = 1
+
+[node name="BackBtn" type="Button" parent="TopBar/HBoxContainer"]
+custom_minimum_size = Vector2(120, 40)
+layout_mode = 2
+size_flags_vertical = 4
+text = "BACK MENU"
+
+[node name="Title" type="Label" parent="TopBar/HBoxContainer"]
+layout_mode = 2
+theme_override_colors/font_color = Color(0.2, 0.8, 1, 1)
+theme_override_font_sizes/font_size = 24
+text = "BALLSCAPE LEVEL MAKER"
+
+[node name="ClearBtn" type="Button" parent="TopBar/HBoxContainer"]
+custom_minimum_size = Vector2(100, 40)
+layout_mode = 2
+size_flags_vertical = 4
+text = "CLEAR GRID"
+
+[node name="SaveBtn" type="Button" parent="TopBar/HBoxContainer"]
+custom_minimum_size = Vector2(100, 40)
+layout_mode = 2
+size_flags_vertical = 4
+text = "SAVE LEVEL"
+
+[node name="TestBtn" type="Button" parent="TopBar/HBoxContainer"]
+custom_minimum_size = Vector2(140, 40)
+layout_mode = 2
+size_flags_vertical = 4
+theme_override_colors/font_color = Color(0.3, 1, 0.5, 1)
+text = "▶ TEST PLAY"
+
+[node name="BottomPanel" type="PanelContainer" parent="."]
+custom_minimum_size = Vector2(1280, 80)
+layout_mode = 1
+anchors_preset = 12
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_top = -80.0
+grow_horizontal = 2
+grow_vertical = 0
+
+[node name="MarginContainer" type="MarginContainer" parent="BottomPanel"]
+layout_mode = 2
+theme_override_constants/margin_left = 20
+theme_override_constants/margin_right = 20
+
+[node name="HBoxContainer" type="HBoxContainer" parent="BottomPanel/MarginContainer"]
+layout_mode = 2
+alignment = 1
+
+[node name="PaletteTitle" type="Label" parent="BottomPanel/MarginContainer/HBoxContainer"]
+layout_mode = 2
+text = "BRICK PALETTE:"
+
+[node name="Palette" type="HBoxContainer" parent="BottomPanel/MarginContainer/HBoxContainer"]
+layout_mode = 2
+theme_override_constants/separation = 12
+alignment = 1

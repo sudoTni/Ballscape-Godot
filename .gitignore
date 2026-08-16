@@ -1,0 +1,12 @@
+# Godot 4 import and build cache
+.godot/
+
+# Godot engine binaries
+Godot_v*
+*.x86_64
+*.exe
+*.app
+
+# OS / Editor temporary files
+.DS_Store
+*.tmp

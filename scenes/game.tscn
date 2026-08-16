@@ -1,0 +1,31 @@
+[gd_scene load_steps=3 format=3]
+
+[ext_resource type="Script" path="res://scripts/game.gd" id="1_script"]
+[ext_resource type="PackedScene" path="res://scenes/hud.tscn" id="2_hud"]
+
+[node name="Game" type="Node2D"]
+script = ExtResource("1_script")
+
+[node name="Background" type="ColorRect" parent="."]
+offset_right = 1280.0
+offset_bottom = 720.0
+color = Color(0.06, 0.07, 0.12, 1)
+
+[node name="ArenaBorder" type="ReferenceRect" parent="."]
+offset_left = 60.0
+offset_top = 60.0
+offset_right = 1220.0
+offset_bottom = 700.0
+border_color = Color(0.2, 0.5, 0.9, 0.4)
+border_width = 3.0
+editor_only = false
+
+[node name="BottomShieldLine" type="Line2D" parent="."]
+visible = false
+points = PackedVector2Array(60, 690, 1220, 690)
+width = 8.0
+default_color = Color(0, 0.8, 1, 0.9)
+
+[node name="LevelContainer" type="Node2D" parent="."]
+
+[node name="HUD" parent="." instance=ExtResource("2_hud")]

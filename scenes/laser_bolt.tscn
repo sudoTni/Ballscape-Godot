@@ -1,0 +1,22 @@
+[gd_scene load_steps=4 format=3]
+
+[ext_resource type="Script" path="res://scripts/laser_bolt.gd" id="1_script"]
+[ext_resource type="Texture2D" path="res://assets/sprites/fx_speed_lines.tres" id="2_tex"]
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_1"]
+radius = 4.0
+height = 24.0
+
+[node name="LaserBolt" type="Area2D"]
+collision_layer = 16
+collision_mask = 6
+script = ExtResource("1_script")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+modulate = Color(1, 0.2, 0.2, 1)
+rotation = 1.5708
+scale = Vector2(0.3, 0.3)
+texture = ExtResource("2_tex")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("CapsuleShape2D_1")
