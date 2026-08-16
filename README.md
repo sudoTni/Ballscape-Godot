@@ -9,7 +9,6 @@
 
 ---
 <p align = "center"><img width="800" height="450" alt="screenshot" src="https://github.com/user-attachments/assets/7bfa8942-54f4-4bd9-b03f-5fa4b7facf8e" /></p>
----
 
 ## ✨ Features
 
